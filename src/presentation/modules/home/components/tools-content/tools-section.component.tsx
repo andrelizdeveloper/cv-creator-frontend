@@ -12,7 +12,7 @@ interface ToolsContentProps {
 
 const toolTextSx: SxObject = {
     fontSize: 14,
-    lineHeight: 1.0,
+    lineHeight: 1.2,
 };
 
 export function ToolsContent({ toolsValue }: ToolsContentProps) {
