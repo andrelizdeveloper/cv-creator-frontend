@@ -52,7 +52,7 @@ const initialStateWithSelfInformation: UseHandleCvFormInitialValues = {
     ],
     toolsInformation: {
         toolName:
-            'Javascript, TypeScript, React, Node.js, Express.js, MongoDB, PostgreSQL, MySQL, HTML5, CSS3, SASS, Material-UI (MUI), Git, GitHub, GitLab, Docker, Jest, Vitest, Kotlin, Android, Figma, Firebase',
+            'JavaScript, TypeScript, Frontend, HTML, CSS, SCSS, Redux, Tailwind CSS, Shadcn UI, Astro, Angular, Rxng, Prime NG, React, Next JS, MUI, Zustand, Zod, Express JS, PostgreSQL, Mongo DB, Supabase, Firebase, Java, Kotlin, React Native, Vitest, Testing-library/react, Git/Github, Docker, Figma, Wix, Power Bi',
     },
 };
 
@@ -88,7 +88,7 @@ const initialState: UseHandleCvFormInitialValues = {
 
 export function useHandleCvForm(): UseHandleCvFormReturn {
     const { watch, setValue, reset } = useForm<UseHandleCvFormInitialValues>({
-        defaultValues: initialState,
+        defaultValues: initialStateWithSelfInformation,
     });
 
     const userInformation = watch('userInformation');
