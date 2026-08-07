@@ -1,8 +1,74 @@
 // Components
-import { TitleSection } from "../../../../components";
+import { Stack, Typography } from '@mui/material';
 
-export function JobsContent() {
+// Configs
+import { AppColorsConfig } from '../../../../../configs';
+
+// Interfaces
+import { SxObject } from '../../../../interfaces';
+
+import { TitleSection } from '../../../../components';
+
+interface JobsContentProps {
+    jobExperienceInformation: Array<{
+        jobCompany: string;
+        jobPosition: string;
+        jobStartDate: string;
+        jobEndDate: string;
+        jobDescription: string;
+    }>;
+}
+
+const jobItemContainerSx: SxObject = {
+    borderBottom: `1px solid ${AppColorsConfig.gray[200]}`,
+    paddingBottom: 1,
+    marginBottom: 1,
+    gap: 0.5,
+};
+
+const jobTitleSx: SxObject = {
+    lineHeight: 1.0,
+    fontSize: 14,
+};
+
+const jobDatesSx: SxObject = {
+    fontSize: 13,
+    color: AppColorsConfig.gray[500],
+    lineHeight: 1.0,
+};
+
+const jobDescriptionSx: SxObject = {
+    fontSize: 13,
+    color: AppColorsConfig.gray[600],
+    lineHeight: 1.0,
+};
+
+export function JobsContent({ jobExperienceInformation }: JobsContentProps) {
     return (
-        <TitleSection title="Jobs" textAlign="left" />
-    )
+        <Stack>
+            <TitleSection title="Jobs" textAlign="left" />
+            <Stack sx={{ marginTop: 1 }}>
+                {jobExperienceInformation.map((job, index) => {
+                    const jobCompany = job.jobCompany.trim() || 'Company';
+                    const jobPosition = job.jobPosition.trim() || 'Position';
+                    const jobStartDate = job.jobStartDate.trim() || 'Start';
+                    const jobEndDate = job.jobEndDate.trim() || 'End';
+                    const jobDescription = job.jobDescription.trim();
+                    return (
+                        <Stack key={index} sx={jobItemContainerSx}>
+                            <Typography sx={jobTitleSx}>
+                                {jobCompany} - {jobPosition}
+                            </Typography>
+                            <Typography sx={jobDatesSx}>
+                                {jobStartDate} - {jobEndDate}
+                            </Typography>
+                            {jobDescription !== '' && (
+                                <Typography sx={jobDescriptionSx}>{jobDescription}</Typography>
+                            )}
+                        </Stack>
+                    );
+                })}
+            </Stack>
+        </Stack>
+    );
 }

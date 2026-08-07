@@ -1,1 +1,3 @@
-export * from './title-section/title-section.component';
+export * from './ui';
+export * from './forms';
+export * from './modals';
