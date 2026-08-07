@@ -94,7 +94,9 @@ export function EditorToolsLayout({
     return (
         <>
             <Grid container sx={editorToolsContainerSx}>
-                <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 4.5 : 0 }}>
+                <Grid
+                    size={{ xs: isLeftSidebarShowing ? 12 : 0, sm: isLeftSidebarShowing ? 4.5 : 0 }}
+                >
                     <LeftSidebarContainer
                         editorForm={editorForm}
                         onPrintClick={onPrintClick}
@@ -104,7 +106,14 @@ export function EditorToolsLayout({
                         toggleLeftSidebar={toggleLeftSidebar}
                     />
                 </Grid>
-                <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 7.5 : 12 }}>{children}</Grid>
+                <Grid
+                    size={{
+                        xs: isLeftSidebarShowing ? 12 : 12,
+                        sm: isLeftSidebarShowing ? 7.5 : 12,
+                    }}
+                >
+                    {children}
+                </Grid>
             </Grid>
 
             {!isLeftSidebarShowing && (
