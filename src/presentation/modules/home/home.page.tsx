@@ -21,11 +21,13 @@ import { useHandleOpenedModalHook } from '../../../infrastructure';
 
 const pageContainer1Sx: SxObject = {
     backgroundColor: AppColorsConfig.gray[50],
-    height: '100%',
+    height: '100vh',
+    overflowY: 'auto',
 };
 
 const pageContainer2Sx: SxObject = {
     padding: 2,
+    height: '100%',
 };
 
 const pageContentSx: SxObject = {

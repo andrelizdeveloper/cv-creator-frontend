@@ -115,7 +115,6 @@ export function EditorToolsLayout({
                     {children}
                 </Grid>
             </Grid>
-
             {!isLeftSidebarShowing && (
                 <Button
                     color="primary"
