@@ -1,5 +1,6 @@
 // Modules
-import { Grid, Stack } from '@mui/material';
+import { ChevronLeft } from '@mui/icons-material';
+import { Button, Fab, Grid, Stack } from '@mui/material';
 
 // Configs
 import { AppColorsConfig } from '../../../../../configs';
@@ -91,18 +92,38 @@ export function EditorToolsLayout({
     toggleLeftSidebar,
 }: EditorToolsLayoutProps) {
     return (
-        <Grid container sx={editorToolsContainerSx}>
-            <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 4.5 : 0 }}>
-                <LeftSidebarContainer
-                    editorForm={editorForm}
-                    onPrintClick={onPrintClick}
-                    openStartOverModal={openStartOverModal}
-                    openBuyMeACoffeeModal={openBuyMeACoffeeModal}
-                    isLeftSidebarShowing={isLeftSidebarShowing}
-                    toggleLeftSidebar={toggleLeftSidebar}
-                />
+        <>
+            <Grid container sx={editorToolsContainerSx}>
+                <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 4.5 : 0 }}>
+                    <LeftSidebarContainer
+                        editorForm={editorForm}
+                        onPrintClick={onPrintClick}
+                        openStartOverModal={openStartOverModal}
+                        openBuyMeACoffeeModal={openBuyMeACoffeeModal}
+                        isLeftSidebarShowing={isLeftSidebarShowing}
+                        toggleLeftSidebar={toggleLeftSidebar}
+                    />
+                </Grid>
+                <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 7.5 : 12 }}>{children}</Grid>
             </Grid>
-            <Grid size={{ xs: 12, sm: isLeftSidebarShowing ? 7.5 : 12 }}>{children}</Grid>
-        </Grid>
+
+            {!isLeftSidebarShowing && (
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={toggleLeftSidebar}
+                    aria-label="Show sidebar"
+                    startIcon={<ChevronLeft />}
+                    sx={{
+                        position: 'fixed',
+                        top: 16,
+                        left: 16,
+                        zIndex: 1300,
+                    }}
+                >
+                    Show sidebar
+                </Button>
+            )}
+        </>
     );
 }
