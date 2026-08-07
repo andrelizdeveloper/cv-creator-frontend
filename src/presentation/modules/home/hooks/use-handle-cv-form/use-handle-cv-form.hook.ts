@@ -88,7 +88,7 @@ const initialState: UseHandleCvFormInitialValues = {
 
 export function useHandleCvForm(): UseHandleCvFormReturn {
     const { watch, setValue, reset } = useForm<UseHandleCvFormInitialValues>({
-        defaultValues: initialStateWithSelfInformation,
+        defaultValues: initialState,
     });
 
     const userInformation = watch('userInformation');
