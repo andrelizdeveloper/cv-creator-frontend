@@ -7,6 +7,55 @@ import {
     UseHandleCvFormInitialValues,
 } from './use-handle-cv-form.interfaces';
 
+const initialStateWithSelfInformation: UseHandleCvFormInitialValues = {
+    userInformation: {
+        userName: 'Andre Lizarán',
+        userEmail: 'andrelizdeveloper@gmail.com',
+        userPhone: '2293460202',
+        userLocation: 'CDMX, México',
+        userDescription:
+            'My name is André Lizarán, and I am a Fullstack Developer with four years of professional experience. I have collaborated on projects for companies and independent clients, including consultancy work, delivering high-quality solutions tailored to diverse needs. Based in Veracruz, México, I bring a strong passion for technology and problem-solving to every project I undertake. In my free time, I enjoy playing video games, volleyball, and spending time with friends.',
+    },
+    educationInformation: [
+        {
+            schoolName: 'Instituto Tecnológico de Veracruz',
+            schoolDegree: 'Computer Systems Engineering',
+            schoolStartDate: 'August 2018',
+            schoolEndDate: 'August 2023',
+        },
+    ],
+    jobExperienceInformation: [
+        {
+            jobCompany: 'Oliver Wyman',
+            jobPosition: 'Fullstack Developer - Hybrid',
+            jobStartDate: 'March 2026',
+            jobEndDate: 'Present',
+            jobDescription:
+                '- Development and maintenance of web applications using React, implementing dynamic user interfaces, optimizing performance, and ensuring cross-browser compatibility.\n- Development and maintenance of backend services using Node.js, designing RESTful APIs, managing databases, and ensuring secure data handling and storage.\n- Collaboration with cross-functional teams to gather requirements, define project scope, and deliver high-quality software solutions that meet client needs.\n- Implementation of automated testing frameworks to ensure code quality, reduce bugs, and maintain a reliable software development lifecycle.',
+        },
+        {
+            jobCompany: 'Blau Corp',
+            jobPosition: 'Fullstack Developer - Home Office',
+            jobStartDate: 'January 2021',
+            jobEndDate: 'February 2026',
+            jobDescription:
+                '- Development and maintenance of web platforms using React, implementing modular components, enhancing UI/UX behavior, and ensuring optimal performance across different devices and browsers.\n- Development and maintenance of backend services using Node.js, designing scalable APIs, integrating third-party services, and applying best practices for security, performance, and data management.\n- Development and maintenance of mobile applications using Kotlin, building robust features, improving app stability, and ensuring seamless interaction with backend services and device capabilities.\n- Creation of a shared library for resource distribution across different web platforms using React and MUI, standardizing components, styles, and utilities to improve consistency, reduce duplication, and accelerate development across multiple projects.\n- Testing and validation of web components with Jest and Vitest, ensuring reliability, preventing regressions, and maintaining high-quality standards through automated unit and integration tests.\n- Organization and management of tasks for the software engineering team, coordinating priorities, defining workflows, and ensuring timely delivery of new features and improvements.\n- Troubleshooting technical issues and providing customer support, diagnosing problems, proposing effective solutions, and ensuring a smooth experience for users and clients.\n- Managing the onboarding process for new clients, guiding them through platform configuration, providing training when needed, and ensuring a clear understanding of available features and workflows.',
+        },
+        {
+            jobCompany: 'Circulo de Expertos',
+            jobPosition: 'Fullstack Developer - Home Office',
+            jobStartDate: 'November 2023',
+            jobEndDate: 'January 2025',
+            jobDescription:
+                '- Development and maintenance of a web platform using React, implementing reusable components, optimizing performance, and ensuring a responsive and user-friendly interface.\n- Development and maintenance of a backend system using Node.js, including the creation of RESTful APIs, integration with databases, and implementation of secure and scalable server-side logic.\n- Generation of QR codes for access control, enabling streamlined user entry, improving event flow, and enhancing security through unique code validation.\n- Creation of data-driven charts for event analytics, transforming raw event information into meaningful visual insights to support decision-making and improve operational efficiency.',
+        },
+    ],
+    toolsInformation: {
+        toolName:
+            'Javascript, TypeScript, React, Node.js, Express.js, MongoDB, PostgreSQL, MySQL, HTML5, CSS3, SASS, Material-UI (MUI), Git, GitHub, GitLab, Docker, Jest, Vitest, Kotlin, Android, Figma, Firebase',
+    },
+};
+
 const initialState: UseHandleCvFormInitialValues = {
     userInformation: {
         userName: '',
@@ -221,13 +270,16 @@ export function useHandleCvForm(): UseHandleCvFormReturn {
                 shouldTouch: true,
             });
         },
+
         removeJobExperienceInformation: index => {
             if (jobExperienceInformation.length <= 1) {
                 return;
             }
+
             const nextJobExperienceInformation = jobExperienceInformation.filter(
                 (_, currentIndex) => currentIndex !== index,
             );
+
             setValue('jobExperienceInformation', nextJobExperienceInformation, {
                 shouldDirty: true,
                 shouldTouch: true,

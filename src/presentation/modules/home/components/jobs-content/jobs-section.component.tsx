@@ -20,27 +20,26 @@ interface JobsContentProps {
 }
 
 const jobItemContainerSx: SxObject = {
-    borderBottom: `1px solid ${AppColorsConfig.gray[200]}`,
-    paddingBottom: 1,
-    marginBottom: 1,
     gap: 0.5,
+    marginBottom: 1,
+    paddingBottom: 1,
+    borderBottom: `1px solid ${AppColorsConfig.gray[200]}`,
 };
 
 const jobTitleSx: SxObject = {
-    lineHeight: 1.0,
     fontSize: 14,
+    lineHeight: 1.0,
 };
 
 const jobDatesSx: SxObject = {
     fontSize: 13,
-    color: AppColorsConfig.gray[500],
     lineHeight: 1.0,
+    color: AppColorsConfig.gray[600],
 };
 
 const jobDescriptionSx: SxObject = {
     fontSize: 13,
-    color: AppColorsConfig.gray[600],
-    lineHeight: 1.0,
+    lineHeight: 1.2,
 };
 
 export function JobsContent({ jobExperienceInformation }: JobsContentProps) {
