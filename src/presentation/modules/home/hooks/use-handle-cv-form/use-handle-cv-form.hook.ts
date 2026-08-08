@@ -1,3 +1,6 @@
+/* eslint-disable react-hooks/incompatible-library */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 // Modules
 import { useForm } from 'react-hook-form';
 

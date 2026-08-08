@@ -1,6 +1,6 @@
 // Modules
 import { ChevronLeft } from '@mui/icons-material';
-import { Button, Fab, Grid, Stack } from '@mui/material';
+import { Button, Grid, Stack } from '@mui/material';
 
 // Configs
 import { AppColorsConfig } from '../../../../../configs';
