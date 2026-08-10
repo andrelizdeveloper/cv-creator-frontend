@@ -29,7 +29,7 @@ export function EditorsToolsConfigurationsContainer({
                     { label: 'Poppins', value: 'Poppins' },
                     { label: 'Montserrat', value: 'Montserrat' },
                 ],
-                helperText: 'Selecciona la fuente para los títulos del CV.',
+                helperText: 'Select the font family for the title text in your CV.',
             },
         },
     ];
