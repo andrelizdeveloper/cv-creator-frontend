@@ -65,7 +65,7 @@ function PageContainer({
 
     return (
         <Stack sx={pageContainer1Sx}>
-            <Stack sx={pageContainer2Sx} ref={printableContainerRef}>
+            <Stack sx={pageContainer2Sx} ref={printableContainerRef} className="printable-content">
                 <Stack sx={pageContentSx}>
                     <UserSection
                         username={editorForm.userInformation.userName.value}
