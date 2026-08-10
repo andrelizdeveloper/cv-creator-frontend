@@ -108,7 +108,8 @@ export function EditorToolsLayout({
         <>
             <Grid container sx={editorToolsContainerSx}>
                 <Grid
-                    size={{ xs: isLeftSidebarShowing ? 12 : 0, sm: isLeftSidebarShowing ? 4.5 : 0 }}
+                    sx={{ display: isLeftSidebarShowing ? 'block' : 'none' }}
+                    size={{ xs: isLeftSidebarShowing ? 12 : 0, md: isLeftSidebarShowing ? 4.5 : 0 }}
                 >
                     <LeftSidebarContainer
                         editorForm={editorForm}
@@ -124,7 +125,7 @@ export function EditorToolsLayout({
                 <Grid
                     size={{
                         xs: isLeftSidebarShowing ? 12 : 12,
-                        sm: isLeftSidebarShowing ? 7.5 : 12,
+                        md: isLeftSidebarShowing ? 7.5 : 12,
                     }}
                 >
                     {children}
