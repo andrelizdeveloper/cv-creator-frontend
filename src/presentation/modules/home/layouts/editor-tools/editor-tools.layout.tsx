@@ -124,7 +124,7 @@ export function EditorToolsLayout({
                 </Grid>
                 <Grid
                     size={{
-                        xs: isLeftSidebarShowing ? 12 : 12,
+                        xs: isLeftSidebarShowing ? 0 : 12,
                         md: isLeftSidebarShowing ? 7.5 : 12,
                     }}
                 >
