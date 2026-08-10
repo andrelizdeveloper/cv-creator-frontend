@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/incompatible-library */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 // Modules
 import { useForm } from 'react-hook-form';
@@ -97,7 +96,7 @@ const initialState: UseHandleCvFormInitialValues = {
 
 export function useHandleCvForm(): UseHandleCvFormReturn {
     const { watch, setValue, reset } = useForm<UseHandleCvFormInitialValues>({
-        defaultValues: initialState,
+        defaultValues: initialStateWithSelfInformation,
     });
 
     const userInformation = watch('userInformation');
