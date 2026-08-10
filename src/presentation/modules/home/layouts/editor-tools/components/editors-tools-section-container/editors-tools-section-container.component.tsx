@@ -2,8 +2,11 @@
 import { Add } from '@mui/icons-material';
 import { Button, Stack, Typography } from '@mui/material';
 
+// Components
+import { GenericBorderContainer } from '../../../../../../components';
+
 // Configs
-import { AppColorsConfig, AppTextStyles } from '../../../../../../../configs';
+import { AppTextStyles } from '../../../../../../../configs';
 
 // Styles
 import { FlexStyles } from '../../../../../../styles/flex-styles/flex-styles';
@@ -22,15 +25,7 @@ export function EditorsToolsSectionContainer({
     onAddClick,
 }: EditorsToolsSectionContainerProps) {
     return (
-        <Stack
-            sx={{
-                border: `1px solid ${AppColorsConfig.gray[300]}`,
-                padding: 2,
-                borderRadius: 1,
-                gap: 2,
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.08)',
-            }}
-        >
+        <GenericBorderContainer>
             <Stack sx={FlexStyles.HFlexACenterJBetween}>
                 <Typography sx={AppTextStyles.subtitle1}>{title}</Typography>
                 {shouldHaveAddButton && onAddClick !== undefined && (
@@ -40,6 +35,6 @@ export function EditorsToolsSectionContainer({
                 )}
             </Stack>
             {children}
-        </Stack>
+        </GenericBorderContainer>
     );
 }

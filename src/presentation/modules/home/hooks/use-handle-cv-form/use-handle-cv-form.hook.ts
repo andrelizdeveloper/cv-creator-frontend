@@ -57,6 +57,9 @@ const initialStateWithSelfInformation: UseHandleCvFormInitialValues = {
         toolName:
             'JavaScript, TypeScript, Frontend, HTML, CSS, SCSS, Redux, Tailwind CSS, Shadcn UI, Astro, Angular, Rxng, Prime NG, React, Next JS, MUI, Zustand, Zod, Express JS, PostgreSQL, Mongo DB, Supabase, Firebase, Java, Kotlin, React Native, Vitest, Testing-library/react, Git/Github, Docker, Figma, Wix, Power Bi',
     },
+    configurations: {
+        titleFontFamily: 'Bebas Neue',
+    },
 };
 
 const initialState: UseHandleCvFormInitialValues = {
@@ -87,6 +90,9 @@ const initialState: UseHandleCvFormInitialValues = {
     toolsInformation: {
         toolName: '',
     },
+    configurations: {
+        titleFontFamily: 'Bebas Neue',
+    },
 };
 
 export function useHandleCvForm(): UseHandleCvFormReturn {
@@ -98,6 +104,7 @@ export function useHandleCvForm(): UseHandleCvFormReturn {
     const toolsInformation = watch('toolsInformation');
     const educationInformation = watch('educationInformation');
     const jobExperienceInformation = watch('jobExperienceInformation');
+    const configurations = watch('configurations');
 
     return {
         userInformation: {
@@ -223,6 +230,16 @@ export function useHandleCvForm(): UseHandleCvFormReturn {
                 value: toolsInformation.toolName,
                 onChange: value =>
                     setValue('toolsInformation.toolName', value, {
+                        shouldDirty: true,
+                        shouldTouch: true,
+                    }),
+            },
+        },
+        configurations: {
+            titleFontFamily: {
+                value: configurations.titleFontFamily,
+                onChange: value =>
+                    setValue('configurations.titleFontFamily', value, {
                         shouldDirty: true,
                         shouldTouch: true,
                     }),

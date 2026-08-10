@@ -5,6 +5,7 @@ import { cleanup } from '@testing-library/react';
 import { EducationContent } from '../presentation/modules/home/components/education-content/education-content.component';
 import { JobsContent } from '../presentation/modules/home/components/jobs-content/jobs-section.component';
 import { UserSection } from '../presentation/modules/home/components/user-section/user-section.component';
+import { TitleSection } from '../presentation/components/ui/title-section/title-section.component';
 import { useHandleCvForm } from '../presentation/modules/home/hooks/use-handle-cv-form/use-handle-cv-form.hook';
 
 afterEach(() => {
@@ -68,6 +69,22 @@ describe('CV creator core flows', () => {
         expect(
             screen.getByText('Built reusable UI systems and improved performance.'),
         ).toBeInTheDocument();
+    });
+
+    it('applies a custom font family to title sections', () => {
+        render(<TitleSection title="Hello world" fontFamily="Poppins" />);
+
+        expect(screen.getByText('Hello world')).toHaveStyle({ fontFamily: 'Poppins' });
+    });
+
+    it('stores the selected title font in the form state', () => {
+        const { result } = renderHook(() => useHandleCvForm());
+
+        act(() => {
+            result.current.configurations.titleFontFamily.onChange('Poppins');
+        });
+
+        expect(result.current.configurations.titleFontFamily.value).toBe('Poppins');
     });
 
     it('updates the form state for user and tools information', () => {

@@ -43,7 +43,11 @@ interface PageContainerProps {
     printableContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-function PageContainer({ editorForm, printableContainerRef }: PageContainerProps) {
+function PageContainer({
+    editorForm,
+    printableContainerRef,
+    titleFontFamily,
+}: PageContainerProps & { titleFontFamily: string }) {
     const educationInformation = editorForm.educationInformation.map(education => ({
         schoolName: education.schoolName.value,
         schoolDegree: education.schoolDegree.value,
@@ -69,10 +73,20 @@ function PageContainer({ editorForm, printableContainerRef }: PageContainerProps
                         phone={editorForm.userInformation.userPhone.value}
                         location={editorForm.userInformation.userLocation.value}
                         description={editorForm.userInformation.userDescription.value}
+                        fontFamily={titleFontFamily}
                     />
-                    <EducationContent educationInformation={educationInformation} />
-                    <JobsContent jobExperienceInformation={jobExperienceInformation} />
-                    <ToolsContent toolsValue={editorForm.toolsInformation.toolName.value} />
+                    <EducationContent
+                        educationInformation={educationInformation}
+                        fontFamily={titleFontFamily}
+                    />
+                    <JobsContent
+                        jobExperienceInformation={jobExperienceInformation}
+                        fontFamily={titleFontFamily}
+                    />
+                    <ToolsContent
+                        toolsValue={editorForm.toolsInformation.toolName.value}
+                        fontFamily={titleFontFamily}
+                    />
                 </Stack>
             </Stack>
         </Stack>
@@ -109,10 +123,13 @@ export function HomePage() {
                 openBuyMeACoffeeModal={() => setWhichModalIsOpen('buy-me-a-coffee')}
                 isLeftSidebarShowing={isLeftSidebarShowing}
                 toggleLeftSidebar={() => setIsLeftSidebarShowing(prev => !prev)}
+                titleFontFamily={editorForm.configurations.titleFontFamily.value}
+                onTitleFontFamilyChange={editorForm.configurations.titleFontFamily.onChange}
             >
                 <PageContainer
                     editorForm={editorForm}
                     printableContainerRef={printableContainerRef}
+                    titleFontFamily={editorForm.configurations.titleFontFamily.value}
                 />
             </EditorToolsLayout>
             <BuyMeACoffeeModal isOpen={getIsModalOpen('buy-me-a-coffee')} onClose={closeModal} />

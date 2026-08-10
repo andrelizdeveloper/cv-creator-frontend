@@ -19,6 +19,7 @@ import {
     EditorsToolsUserInformationContainer,
     EditorsToolsToolsInformationContainer,
     EditorsToolsEducationInformationContainer,
+    EditorsToolsConfigurationsContainer,
 } from './components';
 
 const LeftSidebarContainerSx: SxObject = {
@@ -34,6 +35,8 @@ interface LeftSidebarContainerProps {
     openBuyMeACoffeeModal: () => void;
     isLeftSidebarShowing: boolean;
     toggleLeftSidebar: () => void;
+    titleFontFamily: string;
+    onTitleFontFamilyChange: (fontFamily: string) => void;
 }
 
 function LeftSidebarContainer({
@@ -43,6 +46,8 @@ function LeftSidebarContainer({
     openBuyMeACoffeeModal,
     isLeftSidebarShowing,
     toggleLeftSidebar,
+    titleFontFamily,
+    onTitleFontFamilyChange,
 }: LeftSidebarContainerProps) {
     return (
         <Stack sx={LeftSidebarContainerSx}>
@@ -57,6 +62,10 @@ function LeftSidebarContainer({
                     toggleLeftSidebar={toggleLeftSidebar}
                 />
                 <Stack sx={{ gap: 2 }}>
+                    <EditorsToolsConfigurationsContainer
+                        titleFontFamily={titleFontFamily}
+                        onTitleFontFamilyChange={onTitleFontFamilyChange}
+                    />
                     <EditorsToolsUserInformationContainer editorForm={editorForm} />
                     <EditorsToolsEducationInformationContainer editorForm={editorForm} />
                     <EditorsToolsJobsInformationContainer editorForm={editorForm} />
@@ -80,6 +89,8 @@ interface EditorToolsLayoutProps {
     openBuyMeACoffeeModal: () => void;
     isLeftSidebarShowing: boolean;
     toggleLeftSidebar: () => void;
+    titleFontFamily: string;
+    onTitleFontFamilyChange: (fontFamily: string) => void;
 }
 
 export function EditorToolsLayout({
@@ -90,6 +101,8 @@ export function EditorToolsLayout({
     openBuyMeACoffeeModal,
     isLeftSidebarShowing,
     toggleLeftSidebar,
+    titleFontFamily,
+    onTitleFontFamilyChange,
 }: EditorToolsLayoutProps) {
     return (
         <>
@@ -104,6 +117,8 @@ export function EditorToolsLayout({
                         openBuyMeACoffeeModal={openBuyMeACoffeeModal}
                         isLeftSidebarShowing={isLeftSidebarShowing}
                         toggleLeftSidebar={toggleLeftSidebar}
+                        titleFontFamily={titleFontFamily}
+                        onTitleFontFamilyChange={onTitleFontFamilyChange}
                     />
                 </Grid>
                 <Grid

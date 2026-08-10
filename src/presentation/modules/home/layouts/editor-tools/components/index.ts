@@ -4,3 +4,4 @@ export * from './editors-tools-user-information-container/editors-tools-user-inf
 export * from './editors-tools-education-information-container/editors-tools-education-information-container.component';
 export * from './editors-tools-jobs-information-container/editors-tools-jobs-information-container.component';
 export * from './editors-tools-tools-information-container/editors-tools-tools-information-container.component';
+export * from './editors-tools-configurations-container/editors-tools-configurations-container.component';

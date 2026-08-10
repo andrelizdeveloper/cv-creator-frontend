@@ -16,6 +16,7 @@ interface EducationContentProps {
         schoolStartDate: string;
         schoolEndDate: string;
     }>;
+    fontFamily?: string;
 }
 
 const educationItemContainerSx: SxObject = {
@@ -36,10 +37,10 @@ const educationDateSx: SxObject = {
     lineHeight: 1.0,
 };
 
-export function EducationContent({ educationInformation }: EducationContentProps) {
+export function EducationContent({ educationInformation, fontFamily }: EducationContentProps) {
     return (
         <Stack>
-            <TitleSection title="Education" textAlign="left" />
+            <TitleSection title="Education" textAlign="left" fontFamily={fontFamily} />
             <Stack sx={{ marginTop: 1 }}>
                 {educationInformation.map((education, index) => {
                     const schoolName = education.schoolName.trim() || 'School';

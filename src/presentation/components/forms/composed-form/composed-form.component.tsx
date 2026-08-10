@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Stack } from '@mui/material';
 
 // Components
-import { CustomTextField } from './components';
+import { CustomSelectField, CustomTextField } from './components';
 
 // Interfaces
 import { ComposedFormProps, FormFields, PossibleForms } from './composed-form.interface';
@@ -12,6 +12,8 @@ const MemorizedFormComponet = memo(({ form }: { form: PossibleForms }) => {
     switch (form.type) {
         case FormFields.TEXTFIELD:
             return <CustomTextField {...form.props} />;
+        case FormFields.SELECTFIELD:
+            return <CustomSelectField {...form.props} />;
         default:
             return null;
     }

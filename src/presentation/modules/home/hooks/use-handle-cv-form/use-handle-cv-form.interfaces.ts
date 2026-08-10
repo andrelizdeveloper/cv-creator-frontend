@@ -25,11 +25,16 @@ interface ToolsInformationSection {
     toolName: string;
 }
 
+interface ConfigurationsSection {
+    titleFontFamily: string;
+}
+
 export interface UseHandleCvFormInitialValues {
     userInformation: UserInformationSection;
     educationInformation: EducationInformationSection[];
     jobExperienceInformation: JobInformationSection[];
     toolsInformation: ToolsInformationSection;
+    configurations: ConfigurationsSection;
 }
 
 export interface UseHandleCvFormReturn {
@@ -97,6 +102,12 @@ export interface UseHandleCvFormReturn {
     }[];
     toolsInformation: {
         toolName: {
+            value: string;
+            onChange: (value: string) => void;
+        };
+    };
+    configurations: {
+        titleFontFamily: {
             value: string;
             onChange: (value: string) => void;
         };

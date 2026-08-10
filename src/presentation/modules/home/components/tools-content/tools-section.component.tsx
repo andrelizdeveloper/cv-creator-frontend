@@ -8,6 +8,7 @@ import { TitleSection } from '../../../../components';
 
 interface ToolsContentProps {
     toolsValue: string;
+    fontFamily?: string;
 }
 
 const toolTextSx: SxObject = {
@@ -15,10 +16,10 @@ const toolTextSx: SxObject = {
     lineHeight: 1.2,
 };
 
-export function ToolsContent({ toolsValue }: ToolsContentProps) {
+export function ToolsContent({ toolsValue, fontFamily }: ToolsContentProps) {
     return (
         <Stack>
-            <TitleSection title="Tools" textAlign="left" />
+            <TitleSection title="Tools" textAlign="left" fontFamily={fontFamily} />
             <Stack sx={{ marginTop: 1 }}>
                 <Typography sx={toolTextSx}>{toolsValue}</Typography>
             </Stack>

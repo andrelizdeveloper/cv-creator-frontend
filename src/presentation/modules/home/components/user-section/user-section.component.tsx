@@ -11,12 +11,20 @@ interface UserSectionProps {
     phone: string;
     location: string;
     description: string;
+    fontFamily?: string;
 }
 
-export function UserSection({ username, email, phone, location, description }: UserSectionProps) {
+export function UserSection({
+    username,
+    email,
+    phone,
+    location,
+    description,
+    fontFamily,
+}: UserSectionProps) {
     return (
         <Stack>
-            <TitleContent title={username} />
+            <TitleContent title={username} fontFamily={fontFamily} />
             <ContactInformationContent email={email} phone={phone} location={location} />
             <MyselfDescriptionContent description={description} />
         </Stack>

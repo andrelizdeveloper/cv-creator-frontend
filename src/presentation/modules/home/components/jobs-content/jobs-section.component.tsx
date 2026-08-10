@@ -17,6 +17,7 @@ interface JobsContentProps {
         jobEndDate: string;
         jobDescription: string;
     }>;
+    fontFamily?: string;
 }
 
 const jobItemContainerSx: SxObject = {
@@ -42,10 +43,10 @@ const jobDescriptionSx: SxObject = {
     lineHeight: 1.2,
 };
 
-export function JobsContent({ jobExperienceInformation }: JobsContentProps) {
+export function JobsContent({ jobExperienceInformation, fontFamily }: JobsContentProps) {
     return (
         <Stack>
-            <TitleSection title="Jobs" textAlign="left" />
+            <TitleSection title="Jobs" textAlign="left" fontFamily={fontFamily} />
             <Stack sx={{ marginTop: 1 }}>
                 {jobExperienceInformation.map((job, index) => {
                     const jobCompany = job.jobCompany.trim() || 'Company';
