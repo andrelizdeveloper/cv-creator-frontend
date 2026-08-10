@@ -21,7 +21,7 @@ export function EditorsToolsConfigurationsContainer({
         {
             type: FormFields.SELECTFIELD,
             props: {
-                label: 'Fuente de títulos',
+                label: 'Title font',
                 value: titleFontFamily,
                 onChange: onTitleFontFamilyChange,
                 options: [
