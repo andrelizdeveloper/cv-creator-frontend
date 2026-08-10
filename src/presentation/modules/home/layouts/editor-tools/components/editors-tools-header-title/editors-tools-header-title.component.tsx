@@ -20,10 +20,8 @@ export function EditorsToolsHeaderTitle({
     return (
         <Stack sx={FlexStyles.HFlexACenterJBetween}>
             <Stack sx={FlexStyles.HFlexABaseline}>
-                <Typography sx={AppTextStyles.title1}>Editor Tools</Typography>
-                <Typography sx={{ ...AppTextStyles.caption1, mt: 0.5 }}>
-                    Version 1.0 by Andre Lizaran
-                </Typography>
+                <Typography sx={AppTextStyles.title1}>CV Creator</Typography>
+                <Typography sx={AppTextStyles.caption1}>Version 1.0 by Andre Lizaran</Typography>
             </Stack>
             <IconButton
                 onClick={toggleLeftSidebar}
